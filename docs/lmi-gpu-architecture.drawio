@@ -1,0 +1,128 @@
+<mxfile host="drawio">
+  <diagram id="lmi-gpu" name="LMI GPU構成">
+    <mxGraphModel dx="1400" dy="850" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1400" pageHeight="840" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="cloud" value="AWS Cloud" style="html=1;whiteSpace=wrap;fontSize=12;fontStyle=0;pointerEvents=0;shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_aws_cloud_alt;strokeColor=#232F3E;fillColor=none;verticalAlign=top;align=left;spacingLeft=30;fontColor=#232F3E;dashed=0;" vertex="1" parent="1">
+          <mxGeometry x="170" y="90" width="1210" height="690" as="geometry"/>
+        </mxCell>
+        <mxCell id="region" value="東京リージョン(ap-northeast-1)" style="html=1;whiteSpace=wrap;fontSize=12;fontStyle=0;pointerEvents=0;shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_region;strokeColor=#00A4A6;fillColor=none;verticalAlign=top;align=left;spacingLeft=30;fontColor=#147EBA;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="190" y="200" width="1170" height="560" as="geometry"/>
+        </mxCell>
+        <mxCell id="vpc" value="VPC(10.30.0.0/16)" style="html=1;whiteSpace=wrap;fontSize=12;fontStyle=0;pointerEvents=0;shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_vpc2;strokeColor=#8C4FFF;fillColor=none;verticalAlign=top;align=left;spacingLeft=30;fontColor=#8C4FFF;dashed=0;" vertex="1" parent="1">
+          <mxGeometry x="230" y="400" width="690" height="330" as="geometry"/>
+        </mxCell>
+        <mxCell id="pub" value="パブリックサブネット&lt;br&gt;(ap-northeast-1a)" style="html=1;whiteSpace=wrap;fontSize=11;fontStyle=0;pointerEvents=0;shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_security_group;grStroke=0;strokeColor=#7AA116;fillColor=#F2F6E8;verticalAlign=top;align=left;spacingLeft=30;fontColor=#248814;dashed=0;" vertex="1" parent="1">
+          <mxGeometry x="250" y="450" width="190" height="230" as="geometry"/>
+        </mxCell>
+        <mxCell id="pri-a" value="プライベートサブネット&lt;br&gt;(ap-northeast-1a)" style="html=1;whiteSpace=wrap;fontSize=11;fontStyle=0;pointerEvents=0;shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_security_group;grStroke=0;strokeColor=#00A4A6;fillColor=#E6F6F7;verticalAlign=top;align=left;spacingLeft=30;fontColor=#147EBA;dashed=0;" vertex="1" parent="1">
+          <mxGeometry x="460" y="450" width="210" height="230" as="geometry"/>
+        </mxCell>
+        <mxCell id="pri-b" value="プライベートサブネット&lt;br&gt;(ap-northeast-1c)" style="html=1;whiteSpace=wrap;fontSize=11;fontStyle=0;pointerEvents=0;shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_security_group;grStroke=0;strokeColor=#00A4A6;fillColor=#E6F6F7;verticalAlign=top;align=left;spacingLeft=30;fontColor=#147EBA;dashed=0;" vertex="1" parent="1">
+          <mxGeometry x="680" y="450" width="210" height="230" as="geometry"/>
+        </mxCell>
+        <mxCell id="cp" value="キャパシティプロバイダー(g6.xlargeのみ許可 / MaxVCpuCount: 12)" style="rounded=1;arcSize=4;dashed=1;html=1;whiteSpace=wrap;fillColor=none;strokeColor=#ED7100;strokeWidth=2;verticalAlign=top;align=left;spacingLeft=10;spacingTop=2;fontSize=11;fontStyle=1;fontColor=#ED7100;" vertex="1" parent="1">
+          <mxGeometry x="470" y="500" width="410" height="150" as="geometry"/>
+        </mxCell>
+        <mxCell id="mi-a" value="Managed Instance&lt;br&gt;(g6.xlarge / NVIDIA L4)" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#ED7100;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=11;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.instance2;" vertex="1" parent="1">
+          <mxGeometry x="541" y="545" width="48" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="sg-note" value="セキュリティグループ: インバウンドなし / アウトバウンドはHTTPS(443)のみ" style="text;html=1;align=left;verticalAlign=middle;fontSize=11;fontColor=#DD3522;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="470" y="690" width="430" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="igw" value="Internet Gateway" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#8C4FFF;strokeColor=none;dashed=0;verticalLabelPosition=middle;labelPosition=right;verticalAlign=middle;align=left;html=1;fontSize=11;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.internet_gateway;labelBackgroundColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="400" y="376" width="48" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="nat" value="NAT Gateway" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#8C4FFF;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=11;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.nat_gateway;" vertex="1" parent="1">
+          <mxGeometry x="321" y="551" width="48" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="s3ep" value="S3 Gatewayエンドポイント" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#8C4FFF;strokeColor=none;dashed=0;verticalLabelPosition=middle;labelPosition=right;verticalAlign=middle;align=left;html=1;fontSize=11;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.endpoints;labelBackgroundColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="700" y="706" width="48" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="terraform" value="&lt;b&gt;Terraform&lt;/b&gt;&lt;br&gt;(ローカル)" style="rounded=1;html=1;whiteSpace=wrap;fillColor=#F3EDFB;strokeColor=#7B42BC;strokeWidth=2;fontColor=#232F3E;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="20" y="246" width="120" height="56" as="geometry"/>
+        </mxCell>
+        <mxCell id="pytorch" value="PyTorchのパッケージインデックス&lt;br&gt;(download.pytorch.org)" style="rounded=1;html=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#545B64;fontColor=#232F3E;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="560" y="18" width="220" height="46" as="geometry"/>
+        </mxCell>
+        <mxCell id="caller" value="呼び出し元&lt;br&gt;(aws lambda invoke)" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#232F3E;strokeColor=none;dashed=0;verticalLabelPosition=middle;labelPosition=right;verticalAlign=middle;align=left;html=1;fontSize=11;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.user;" vertex="1" parent="1">
+          <mxGeometry x="1080" y="16" width="48" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="ecrpublic" value="ECR Public&lt;br&gt;(lambda/python:3.13)" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#ED7100;strokeColor=#ffffff;dashed=0;verticalLabelPosition=middle;labelPosition=right;verticalAlign=middle;align=left;html=1;fontSize=11;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.ecr;" vertex="1" parent="1">
+          <mxGeometry x="428" y="110" width="48" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="s3" value="S3バケット&lt;br&gt;(ソースのzip)" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#7AA116;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=11;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.s3;" vertex="1" parent="1">
+          <mxGeometry x="260" y="250" width="48" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="codebuild" value="CodeBuild&lt;br&gt;(Terraform actionsで起動)" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#C925D1;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=11;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.codebuild;" vertex="1" parent="1">
+          <mxGeometry x="440" y="250" width="48" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="ecr" value="ECR&lt;br&gt;(IMMUTABLE / スキャン)" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#ED7100;strokeColor=#ffffff;dashed=0;verticalLabelPosition=middle;labelPosition=right;verticalAlign=middle;align=left;html=1;fontSize=11;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.ecr;" vertex="1" parent="1">
+          <mxGeometry x="640" y="250" width="48" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="cfn" value="CloudFormation&lt;br&gt;スタック" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#E7157B;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=11;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.cloudformation;" vertex="1" parent="1">
+          <mxGeometry x="880" y="250" width="48" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="lambda" value="Lambda関数&lt;br&gt;(Image / x86_64&lt;br&gt;AcceleratorMemorySize: 24&lt;br&gt;実行環境: 最小1 / 最大1)" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#ED7100;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=11;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.lambda;" vertex="1" parent="1">
+          <mxGeometry x="1080" y="250" width="48" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="execrole" value="実行ロール" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#DD344C;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=11;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.role;" vertex="1" parent="1">
+          <mxGeometry x="1250" y="256" width="58" height="33" as="geometry"/>
+        </mxCell>
+        <mxCell id="logs" value="CloudWatch Logs" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#E7157B;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=11;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.cloudwatch_logs;" vertex="1" parent="1">
+          <mxGeometry x="1240" y="600" width="48" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="oprole" value="オペレーターロール&lt;br&gt;(EC2の管理)" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#DD344C;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=11;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.role;" vertex="1" parent="1">
+          <mxGeometry x="1235" y="370" width="58" height="33" as="geometry"/>
+        </mxCell>
+        <mxCell id="e-tf-s3" value="terraform apply" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#7B42BC;strokeWidth=2;fontSize=11;fontColor=#232F3E;labelBackgroundColor=#FFFFFF;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="terraform" target="s3">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e-s3-cb" value="ソース" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#545B64;strokeWidth=2;fontSize=11;fontColor=#232F3E;labelBackgroundColor=#FFFFFF;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="s3" target="codebuild">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e-pub-cb" value="ベースイメージ" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#545B64;strokeWidth=2;fontSize=11;fontColor=#232F3E;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="ecrpublic" target="codebuild">
+          <mxGeometry x="-0.45" relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e-pt-cb" value="torch(CUDA 12.6)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#545B64;strokeWidth=2;fontSize=11;fontColor=#232F3E;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.75;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="pytorch" target="codebuild">
+          <mxGeometry x="0.2" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="670" y="226"/>
+              <mxPoint x="476" y="226"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e-cb-ecr" value="push" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#545B64;strokeWidth=2;fontSize=11;fontColor=#232F3E;labelBackgroundColor=#FFFFFF;exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" edge="1" parent="1" source="codebuild" target="ecr">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e-cfn-fn" value="関数を作成" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#545B64;strokeWidth=2;fontSize=11;fontColor=#232F3E;labelBackgroundColor=#FFFFFF;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="cfn" target="lambda">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e-caller-fn" value="呼び出し(VPCは経由しない)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#545B64;strokeWidth=2;fontSize=11;fontColor=#232F3E;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="caller" target="lambda">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e-fn-cp" value="実行環境を起動" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#ED7100;strokeWidth=2;fontSize=11;fontColor=#232F3E;labelBackgroundColor=#FFFFFF;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.2;entryDx=0;entryDy=0;" edge="1" parent="1" source="lambda" target="cp">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1180" y="274"/>
+              <mxPoint x="1180" y="530"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e-cp-ecr" value="イメージ取得&lt;br&gt;(NAT / S3エンドポイント経由)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;dashed=1;strokeColor=#ED7100;strokeWidth=2;fontSize=11;fontColor=#232F3E;labelBackgroundColor=#FFFFFF;exitX=0.47;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="cp" target="ecr">
+          <mxGeometry x="0.3" relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e-cp-nat" value="外向き通信" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#8C4FFF;strokeWidth=2;fontSize=11;fontColor=#232F3E;labelBackgroundColor=#FFFFFF;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="cp" target="nat">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e-nat-igw" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#8C4FFF;strokeWidth=2;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="nat" target="igw">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e-cp-logs" value="ログ" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#545B64;strokeWidth=2;fontSize=11;fontColor=#232F3E;labelBackgroundColor=#FFFFFF;exitX=1;exitY=0.83;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="cp" target="logs">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

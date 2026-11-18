@@ -1,0 +1,10 @@
+# requirements.txt(ハッシュ付きロック)を生成するための入力。イメージのビルドでは使わない。
+[project]
+name = "lmi-gpu-function"
+version = "0.0.0"
+requires-python = "==3.13.*"
+dependencies = ["torch==2.14.1+cu126"]
+
+# torch本体だけPyTorchのCUDA 12.6版ホイールを直接指定し、依存パッケージはPyPIから解決する。
+[tool.uv.sources]
+torch = { url = "https://download.pytorch.org/whl/cu126/torch-2.14.1%2Bcu126-cp313-cp313-manylinux_2_28_x86_64.whl" }

@@ -1,0 +1,10 @@
+.terraform/
+*.tfstate
+*.tfstate.*
+terraform.tfvars
+*.tfplan
+tfplan
+*.log
+build/
+tmp/
+.claude/

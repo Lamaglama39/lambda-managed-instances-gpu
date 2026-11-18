@@ -1,0 +1,10 @@
+# GPUクォータ(Running On-Demand G and VT instances)の承認後にtrueにする。
+deploy_function = false
+
+# 検証するリージョン。GPUインスタンスタイプを提供しているAZにだけサブネットを作る。
+# aws_region = "ap-northeast-1"
+
+# 1台だけで動かす場合の例(g6.xlargeは4 vCPU)
+# max_vcpu_countは12未満を指定できないため既定の12のままにし、台数は関数の実行環境の数で絞る。
+# min_execution_environments = 1
+# max_execution_environments = 1
